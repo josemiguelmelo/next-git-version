@@ -1,6 +1,9 @@
 #!/bin/sh
 PREFIX=$1
 
+# ensure tags are fetched
+git fetch --all > /dev/null 2>&1
+
 initial_version="0.0.1"
 last_version=$(git describe --tags $(git rev-list --tags --max-count=1) | sed 's/[A-Za-z]*//g')
 major="$(cut -d'.' -f1 <<<$last_version)"
