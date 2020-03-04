@@ -20,8 +20,11 @@ if [ -z $major ] && [ -z $minor ] && [ -z $patch ]; then
 else
     if [[ $commit_msg == *$major_comment* ]]; then
         major=$(($major+1))
+        minor=0
+        patch=0
     elif [[ $commit_msg == *$minor_comment* ]]; then
         minor=$(($minor+1))
+        patch=0
     else
         patch=$(($patch+1))
     fi
